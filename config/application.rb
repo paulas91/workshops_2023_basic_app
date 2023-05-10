@@ -5,6 +5,8 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+A9n.root = File.expand_path('..', __dir__)
+A9n.load
 
 module Workshops2023BasicApp
   class Application < Rails::Application

@@ -20,4 +20,11 @@ module ApplicationHelper
       class: "btn #{css_class}"
     )
   end
+  def weather_presenter
+    @weather_presenter ||= WeatherPresenter.new(data)
+  end
+
+  def data
+    @data ||= WeatherApiConnector.new.weather_data
+  end
 end
