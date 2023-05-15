@@ -32,6 +32,8 @@ gem 'redis', '~> 4.0'
 gem "a9n"
 gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
+gem 'google-api-client', require: 'google/apis/calendar_v3'
+gem 'google-apis-drive_v3'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
