@@ -15,7 +15,12 @@ class Publishers::Application
   end
 
   private
+
   attr_reader :message, :exchange_name, :routing_key
+
+  def connection
+    @connection ||= Bunny.new(connection_options).tap(&:start)
+  end
 
   def connection_options
     {
@@ -25,9 +30,5 @@ class Publishers::Application
       username: "guest",
       password: "guest"
     }
-   end
-
-   def connection
-    @connection ||= Bunny.new(connection_options)
    end
 end

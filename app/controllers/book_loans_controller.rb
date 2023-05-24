@@ -5,6 +5,7 @@ class BookLoansController < ApplicationController
   def create
     respond_to do |format|
       if @book_loan.save
+        publish_log(@book_loan)
         sent_mail(@book_loan.id)
         format.html { redirect_to book_url(book), notice: flash_notice }
         format.json { render :show, status: :created, location: @book_loan }
@@ -42,5 +43,9 @@ class BookLoansController < ApplicationController
 
   def sent_mail(book_loan_id)
     LoanCreatedJob.perform_async(book_loan_id)
+  end
+
+  def publish_log(book_loan)
+    Publishers::BookLoan.new(book_loan.attributes).publish
   end
 end
