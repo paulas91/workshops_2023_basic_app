@@ -31,6 +31,8 @@ gem 'jbuilder'
 gem 'redis'
 gem 'sidekiq'
 gem 'bunny'
+gem "hotwire-rails"
+gem "kaminari"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -68,6 +70,10 @@ group :development, :test do
   gem 'rubocop-rake'
   gem 'rubocop-rspec'
   gem 'shoulda-matchers', '~> 5.3'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+
 end
 
 group :development do
@@ -84,9 +90,7 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+ 
 end
 
 gem "sidekiq-cron", "~> 1.10"
